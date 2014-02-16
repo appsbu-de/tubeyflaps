@@ -72,6 +72,12 @@ module.exports = function (grunt) {
                 src: '**',
                 dest: 'game/assets'
             },
+            debug: {
+                expand: true,
+                cwd: 'src/js/',
+                src: '**',
+                dest: 'game/src'
+            },
             phaser: {
                 src: '<%= project.phaser %>',
                 dest: '<%= project.game %>/phaser.js'
@@ -102,6 +108,21 @@ module.exports = function (grunt) {
             }
         },
 
+        targethtml: {
+
+            dist: {
+                files: {
+                    'game/index.html': 'src/public/index.html'
+                }
+            },
+
+            debug: {
+                files: {
+                    'game/index.html': 'src/public/index.html'
+                }
+            }
+        },
+
         open: {
             server: {
                 path: 'http://localhost:<%= connect.options.port %>'
@@ -114,14 +135,14 @@ module.exports = function (grunt) {
                     livereload: LIVERELOAD_PORT
                 },
                 files: ['<%= project.js %>','<%= project.assets %>/**/*'],
-                tasks: ['build']
+                tasks: ['debug']
             }
         }
     });
 
     // Default for Dev.
     grunt.registerTask('default', [
-        'build',
+        'debug',
         'connect:livereload',
         'open',
         'watch'
@@ -135,8 +156,22 @@ module.exports = function (grunt) {
         'uglify'
     ]);
 
+    // Debug
+    grunt.registerTask('debug', [
+        'clean',
+        'jshint',
+        'copydebug'
+    ]);
+
     grunt.registerTask('copyfiles', [
-        'copy:public',
+        'targethtml:dist',
+        'copy:assets',
+        'copy:phaser'
+    ]);
+
+    grunt.registerTask('copydebug', [
+        'targethtml:debug',
+        'copy:debug',
         'copy:assets',
         'copy:phaser'
     ]);

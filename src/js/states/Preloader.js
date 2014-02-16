@@ -11,7 +11,8 @@ TubyFlaps.Preloader = function (game) {
 TubyFlaps.Preloader.prototype = {
 
 	preload: function () {
-        this.load.image('tubetop', 'assets/img/tubetop.png');
+        this.load.image('tubetop', 'assets/img/pipe-top.png');
+        this.load.image('tube', 'assets/img/pipe.png');
 	},
 
 	create: function () {
