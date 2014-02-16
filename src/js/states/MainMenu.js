@@ -2,18 +2,19 @@
 TubyFlaps.MainMenu = function (game) {
 	this.music = null;
 	this.playButton = null;
+    this.game = game;
+    this.showScore = false;
 };
 
 TubyFlaps.MainMenu.prototype = {
 	create: function () {
-        //this.music = this.add.audio('titleMusic');
-		//this.music.play();
-
-		this.add.sprite(0, 0, 'titlepage');
-		this.playButton = this.add.button(200, 400, 'playButton', this.startGame, this, 'over', 'out', 'over');
+        this.game.stage.backgroundColor = '#AFD8FA';
 	},
 
 	update: function () {
+        if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+            this.startGame();
+        }
 
 	},
 
