@@ -15,6 +15,15 @@ TubyFlaps.Game.prototype = {
         this.birds.push(new Bird('flapy2', this.game, this.game.world.width + 75 + this.game.world.width/2));
         this.key = false;
         this.game.score = 0;
+
+        this.text = game.add.text(30, 20, "Score: \n0", {
+            font: "16px Arial",
+            fill: "#000000",
+            align: "center"
+        });
+
+        this.text.anchor.setTo(0.5, 0.5);
+
     },
 
 	update: function () {
@@ -24,7 +33,7 @@ TubyFlaps.Game.prototype = {
             this.tubey.up();
         }
 
-        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 100)) {
+        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 25)) {
             this.key = false;
         }
 
@@ -35,6 +44,8 @@ TubyFlaps.Game.prototype = {
             this.game.physics.overlap(this.birds[i].getSprite(), this.tubey.getGroup(), this.collisionHandler, null, this);
         }
 
+        this.renderScore();
+
         if (!this.tubey.isAlive) {
             this.quitGame();
         }
@@ -42,14 +53,15 @@ TubyFlaps.Game.prototype = {
 	},
 
     collisionHandler: function() {
-        console.log("collison");
         this.quitGame();
     },
 
 	quitGame: function (pointer) {
-        //	Stop music, delete sprites, purge caches, free resources, all that good stuff.
-        console.log(this.game.score);
 		//	Then let's go back to the main menu.
 		this.game.state.start('MainMenu');
-	}
+	},
+
+    renderScore: function() {
+        this.text.setText("Score: \n" + this.game.score);
+    }
 };
