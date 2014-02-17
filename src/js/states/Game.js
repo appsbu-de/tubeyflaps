@@ -24,6 +24,7 @@ TubyFlaps.Game.prototype = {
 
         this.text.anchor.setTo(0.5, 0.5);
 
+        this.land = this.game.add.tileSprite(0, this.game.world.height-48, this.game.world.width, 48, 'ground');
     },
 
 	update: function () {
@@ -50,7 +51,8 @@ TubyFlaps.Game.prototype = {
             this.quitGame();
         }
 
-	},
+        this.land.tilePosition.x -= 2.5;
+    },
 
     collisionHandler: function() {
         this.quitGame();

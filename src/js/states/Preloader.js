@@ -13,10 +13,8 @@ TubyFlaps.Preloader.prototype = {
 	preload: function () {
         this.load.image('tubetop', 'assets/img/pipe-top.png');
         this.load.image('tube', 'assets/img/pipe.png');
-        this.load.image('cloudsmall1', 'assets/img/cumulus-small1.png');
-        this.load.image('cloudsmall2', 'assets/img/cumulus-small2.png');
-        this.load.image('cloudsmall3', 'assets/img/cumulus-small3.png');
-        this.load.spritesheet('bird', 'assets/img/chick.png', 16, 18, 4);
+        this.load.spritesheet('bird', 'assets/img/bird.png', 34, 24, 4);
+        this.load.image('ground', 'assets/img/land_w.png');
 	},
 
 	create: function () {
