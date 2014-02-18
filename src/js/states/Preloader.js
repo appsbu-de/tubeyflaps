@@ -13,7 +13,9 @@ TubyFlaps.Preloader.prototype = {
 	preload: function () {
         this.load.image('tubetop', 'assets/img/pipe-top.png');
         this.load.image('tube', 'assets/img/pipe.png');
+        this.load.image('logo', 'assets/img/menu_logo.png');
         this.load.spritesheet('bird', 'assets/img/bird.png', 34, 24, 4);
+
         this.load.image('ground', 'assets/img/land_w.png');
 	},
 
@@ -33,7 +35,7 @@ TubyFlaps.Preloader.prototype = {
 		//	the update function completely.
 
         this.ready = true;
-        this.game.state.start('Game');
+        this.game.state.start('MainMenu');
 
 		/*if (this.cache.isSoundDecoded('titleMusic') && this.ready === false)
 		{

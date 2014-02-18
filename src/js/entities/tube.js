@@ -45,8 +45,9 @@ Tube.prototype.update = function () {
     }
 };
 
-Tube.prototype.up = function() {
-    this.tubes.setAll("body.velocity.y", -300);
+Tube.prototype.up = function(amount) {
+    amount = (typeof amount === 'undefined') ? -300: amount;
+    this.tubes.setAll("body.velocity.y", amount);
 };
 
 Tube.prototype.getGroup = function() {

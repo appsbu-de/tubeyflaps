@@ -1,6 +1,7 @@
 TubyFlaps.Game = function (game) {
     this.game = game;
     this.game.score = 0;
+    this.game.highscore = 0;
 };
 
 TubyFlaps.Game.prototype = {
@@ -28,7 +29,6 @@ TubyFlaps.Game.prototype = {
     },
 
 	update: function () {
-
         if (!this.key && this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
             this.key = true;
             this.tubey.up();
@@ -59,7 +59,7 @@ TubyFlaps.Game.prototype = {
     },
 
 	quitGame: function (pointer) {
-		//	Then let's go back to the main menu.
+		//	Then let's go back to the main menu.;
 		this.game.state.start('MainMenu');
 	},
 
