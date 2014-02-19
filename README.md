@@ -1,6 +1,6 @@
 # Tubeyflaps
 
-My contribution for #flappyjam. A Flappy Bird inspired game.
+My contribution for #flappyjam. A Flappy Bird inspired game. Play it here: http://casarock.itch.io/tubeyflaps
 
 ## How to build
 
