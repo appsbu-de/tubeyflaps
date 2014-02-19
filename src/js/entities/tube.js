@@ -41,7 +41,6 @@ var Tube = function (index, game, group) {
 Tube.prototype.update = function () {
     if (this.bottomTubeTop.y > 400) {
         this.isAlive = false;
-
     }
 };
 

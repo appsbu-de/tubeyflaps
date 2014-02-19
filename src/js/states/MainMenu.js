@@ -38,13 +38,13 @@ TubyFlaps.MainMenu.prototype = {
         }
 
         this.tubey.update();
+
         if (!this.tubey.isAlive) {
             this.tubey.up(-700);
             this.tubey.isAlive = true;
         }
 
         this.land.tilePosition.x -= 2.5;
-
 	},
 
 	startGame: function (pointer) {

@@ -5,7 +5,6 @@ TubyFlaps.Game = function (game) {
 };
 
 TubyFlaps.Game.prototype = {
-
 	create: function () {
         this.game.stage.backgroundColor = '#AFD8FA';
 
@@ -24,7 +23,6 @@ TubyFlaps.Game.prototype = {
         });
 
         this.text.anchor.setTo(0.5, 0.5);
-
         this.land = this.game.add.tileSprite(0, this.game.world.height-48, this.game.world.width, 48, 'ground');
     },
 
@@ -59,7 +57,6 @@ TubyFlaps.Game.prototype = {
     },
 
 	quitGame: function (pointer) {
-		//	Then let's go back to the main menu.;
 		this.game.state.start('MainMenu');
 	},
 

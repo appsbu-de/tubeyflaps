@@ -10,9 +10,8 @@ var Bird = function(index, game, x) {
     this.alive = true;
     this.bird = this.game.add.sprite(this.x, this.y, 'bird');
     this.bird.name = index;
-    //this.bird.scale.x = 2;
     this.bird.scale.x *= -1;
-    //this.bird.scale.y = 2;
+
     this.bird.animations.add('flap');
     this.bird.animations.play('flap', 10, true);
     this.bird.body.velocity.x = -200;
