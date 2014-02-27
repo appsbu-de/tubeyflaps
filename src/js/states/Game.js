@@ -27,12 +27,12 @@ TubyFlaps.Game.prototype = {
     },
 
 	update: function () {
-        if (!this.key && this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+        if (!this.key && (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) || this.game.input.pointer1.isDown)) {
             this.key = true;
             this.tubey.up();
         }
 
-        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 25)) {
+        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 25) || this.game.input.pointer1.isUp) {
             this.key = false;
         }
 

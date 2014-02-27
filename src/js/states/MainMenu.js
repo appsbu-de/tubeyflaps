@@ -29,11 +29,11 @@ TubyFlaps.MainMenu.prototype = {
 	},
 
 	update: function () {
-        if(!this.keylocked && this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+        if(!this.keylocked && (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) || this.game.input.pointer1.isDown)) {
             this.startGame();
         }
 
-        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 3000)) {
+        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 3000)  || this.game.input.pointer1.isUp) {
             this.keylocked = false;
         }
 

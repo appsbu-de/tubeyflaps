@@ -63,7 +63,7 @@ module.exports = function (grunt) {
             public: {
                 expand: true,
                 cwd: 'src/public/',
-                src: '**',
+                src: '**/*',
                 dest: 'game/'
             },
             assets: {
@@ -170,6 +170,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('copydebug', [
+        'copy:public',
         'targethtml:debug',
         'copy:debug',
         'copy:assets',
