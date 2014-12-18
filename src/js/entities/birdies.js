@@ -16,7 +16,7 @@ var Bird = function(index, game, x) {
 
     this.bird.animations.add('flap');
     this.bird.animations.play('flap', 10, true);
-    this.bird.body.velocity.x = -200;
+    this.bird.body.velocity.x = -175;
     this.scored = false;
 };
 

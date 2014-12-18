@@ -10,6 +10,7 @@ TubyFlaps.Preloader.prototype = {
         this.load.image('logo', 'assets/img/menu_logo.png');
         this.load.spritesheet('bird', 'assets/img/bird.png', 34, 24, 4);
         this.load.image('ground', 'assets/img/land_w.png');
+        this.load.image('city', 'assets/img/city.png');
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 	},
