@@ -7,7 +7,7 @@ TubyFlaps.Game = function (game) {
 TubyFlaps.Game.prototype = {
 	create: function () {
         this.game.stage.backgroundColor = '#AFD8FA';
-        this.city = this.game.add.tileSprite(0, this.game.world.height-188, this.game.world.width, 140, 'city');
+        this.backdrop = this.game.add.tileSprite(0, this.game.world.height-188, this.game.world.width, 140, 'backdrop');
 
         this.tubes = this.game.add.group();
         this.tubey = new Tube('2', this.game, this.tubes);
@@ -56,7 +56,7 @@ TubyFlaps.Game.prototype = {
         }
 
         this.land.tilePosition.x -= 2.5;
-        this.city.tilePosition.x -= 0.5;
+        this.backdrop.tilePosition.x -= 0.5;
     },
 
     collisionHandler: function() {

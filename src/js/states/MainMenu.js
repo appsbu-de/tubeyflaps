@@ -7,7 +7,8 @@ TubyFlaps.MainMenu.prototype = {
 	create: function () {
 
         this.game.highscore = (this.game.score > this.game.highscore) ? this.game.score : this.game.highscore;
-        this.city = this.game.add.tileSprite(0, this.game.world.height-188, this.game.world.width, 140, 'city');
+
+        this.backdrop = this.game.add.tileSprite(0, this.game.world.height-420, this.game.world.width, 480, 'sprites', 'background.png');
 
         this.tubes = this.game.add.group();
         this.tubey = new Tube('2', this.game, this.tubes);
@@ -53,7 +54,7 @@ TubyFlaps.MainMenu.prototype = {
         }
 
         this.land.tilePosition.x -= 2.5;
-        this.city.tilePosition.x -= 0.75;
+        this.backdrop.tilePosition.x -= 0.75;
 	},
 
 	startGame: function (pointer) {
