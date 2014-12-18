@@ -16,7 +16,7 @@ TubyFlaps.Game.prototype = {
         this.key = false;
         this.game.score = 0;
 
-        this.text = game.add.text(30, 20, "Score: \n0", {
+        this.text = this.game.add.text(30, 20, "Score: \n0", {
             font: "16px Arial",
             fill: "#000000",
             align: "center"
@@ -27,12 +27,17 @@ TubyFlaps.Game.prototype = {
     },
 
 	update: function () {
-        if (!this.key && (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) || this.game.input.pointer1.isDown)) {
+        if (!this.key &&
+            (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) ||
+             this.game.input.pointer1.isDown ||
+             this.game.input.mousePointer.isDown)
+        ) {
+
             this.key = true;
             this.tubey.up();
         }
 
-        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 25) || this.game.input.pointer1.isUp) {
+        if (this.game.input.keyboard.downDuration(Phaser.Keyboard.UP, 25) || this.game.input.pointer1.isUp || this.game.input.mousePointer.isUp) {
             this.key = false;
         }
 
@@ -40,7 +45,7 @@ TubyFlaps.Game.prototype = {
 
         for(var i = 0, len = this.birds.length; i < len; i++) {
             this.birds[i].update();
-            this.game.physics.overlap(this.birds[i].getSprite(), this.tubey.getGroup(), this.collisionHandler, null, this);
+            this.game.physics.arcade.overlap(this.birds[i].getSprite(), this.tubey.getGroup(), this.collisionHandler, null, this);
         }
 
         this.renderScore();

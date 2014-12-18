@@ -9,6 +9,8 @@ var Bird = function(index, game, x) {
     this.y = this.game.rnd.integerInRange(this.rangeYMin, this.rangeYMax);
     this.alive = true;
     this.bird = this.game.add.sprite(this.x, this.y, 'bird');
+    this.game.physics.enable(this.bird, Phaser.Physics.ARCADE);
+
     this.bird.name = index;
     this.bird.scale.x *= -1;
 

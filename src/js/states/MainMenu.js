@@ -5,6 +5,7 @@ TubyFlaps.MainMenu = function (game) {
 
 TubyFlaps.MainMenu.prototype = {
 	create: function () {
+
         this.game.highscore = (this.game.score > this.game.highscore) ? this.game.score : this.game.highscore;
         this.tubes = this.game.add.group();
         this.tubey = new Tube('2', this.game, this.tubes);
@@ -29,11 +30,15 @@ TubyFlaps.MainMenu.prototype = {
 	},
 
 	update: function () {
-        if(!this.keylocked && (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) || this.game.input.pointer1.isDown)) {
+        if(!this.keylocked &&
+            (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) ||
+             this.game.input.pointer1.isDown ||
+             this.game.input.mousePointer.isDown)
+        ) {
             this.startGame();
         }
 
-        if (this.game.input.keyboard.justReleased(Phaser.Keyboard.UP, 3000)  || this.game.input.pointer1.isUp) {
+        if (this.game.input.keyboard.downDuration(Phaser.Keyboard.UP, 3000)  || this.game.input.pointer1.isUp || this.game.input.mousePointer.isUp) {
             this.keylocked = false;
         }
 

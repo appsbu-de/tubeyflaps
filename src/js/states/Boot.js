@@ -1,4 +1,4 @@
-TubyFlaps = {};
+var TubyFlaps = {};
 
 TubyFlaps.Boot = function (game) {
 };

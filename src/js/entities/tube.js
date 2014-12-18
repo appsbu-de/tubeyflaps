@@ -18,12 +18,18 @@ var Tube = function (index, game, group) {
 
     bottomTubeBody = game.add.sprite(this.x, this.y + height + offsetBody, 'tube');
     this.bottomTubeTop = bottomTubeTop = game.add.sprite(this.x, this.y + height - this.heightBottom, 'tubetop');
+
+    this.game.physics.enable( [ this.bottomTubeTop, bottomTubeTop, bottomTubeBody], Phaser.Physics.ARCADE);
+
     bottomTubeTop.anchor.setTo(0.5, 0.5);
     bottomTubeBody.anchor.setTo(0.5, 0.5);
     bottomTubeBody.scale.y = 12;
 
     topTubeBody = game.add.sprite(this.x, this.y - offsetBody, 'tube');
     topTubeTop = game.add.sprite(this.x, this.y + this.heightTop, 'tubetop');
+
+    this.game.physics.enable([topTubeBody, topTubeTop], Phaser.Physics.ARCADE);
+
     topTubeTop.anchor.setTo(0.5, 0.5);
     topTubeBody.anchor.setTo(0.5, 0.5);
 
